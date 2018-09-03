@@ -1,4 +1,5 @@
 angular.module('index', []).controller('tableContent', function ($scope) {
+    $scope.courses_data = courses_data;
     init($scope);
     addCoursesToTable($scope, $scope.selectedCourseIds, courses_data);
     refreshTable($scope);
@@ -14,8 +15,9 @@ function init($scope) {
     $scope.todayIdxList = new Array();
     $scope.columnsOfTime = new Array();
     $scope.timeLineOfDays = CreatetimeLineOfDays();
-    $scope.selectedCourseIds = ["btcg", "rtg", "pba", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test10"];
+    //$scope.selectedCourseIds = ["btcg", "rtg", "pba", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test10"];
     //$scope.selectedCourseIds = ["btcg", "rtg", "pba", "test1", "test2", "test3", "test4"];
+    $scope.selectedCourseIds = ["btcg", "rtg", "pba"];
 
     var timePointList = new Array();
     var currentTime = START_TIME;
@@ -94,17 +96,18 @@ function getColumnsByTime($scope, timeObj) {
                     courseIdObj.columnPos = preAccumColSpan;
                     columns.push({
                         colSpan: columnSpan, rowSpan: courseIdObj.rowSpan,
-                        courseId: courseIdObj.courseId, time: timeObj, day: dayIdx
+                        courseId: courseIdObj.courseId, dateIdx: courseIdObj.dateIdx,
+                        debug: { time: timeObj, day: dayIdx }
                     });
                 }
-                else
-                {
+                else {
                     var postAccumColSpan = courseIdObj.startObj.columnPos - preAccumColSpan;
                     // add skipped(previous continue) empty column
                     if (postAccumColSpan > 0) {
                         columns.push({
                             colSpan: postAccumColSpan, rowSpan: 1,
-                            courseId: "", time: timeObj, day: dayIdx
+                            courseId: null, dateIdx: -1,
+                            debug: { time: timeObj, day: dayIdx }
                         });
                         preAccumColSpan += postAccumColSpan;
                     }
@@ -115,7 +118,8 @@ function getColumnsByTime($scope, timeObj) {
             if (preAccumColSpan < header.span) {
                 columns.push({
                     colSpan: header.span - preAccumColSpan, rowSpan: 1,
-                    courseId: "", time: timeObj, day: dayIdx
+                    courseId: null, dateIdx: -1,
+                    debug: { time: timeObj, day: dayIdx }
                 });
             }
         }
@@ -123,7 +127,8 @@ function getColumnsByTime($scope, timeObj) {
             // no course at this time point
             columns.push({
                 colSpan: header.span, rowSpan: 1,
-                courseId: "", time: timeObj, day: dayIdx
+                courseId: null, dateIdx: -1,
+                debug: { time: timeObj, day: dayIdx }
             });
         }
     }
@@ -167,7 +172,7 @@ function pickTimeObj(timeObjMap, timeObj) {
 
 function expandArray(array, newSize, defaultValue) {
     var offset = newSize - array.length;
-    while(offset > 0) {
+    while (offset > 0) {
         array.push(defaultValue);
         offset--;
     }
@@ -184,7 +189,7 @@ function insertToCourseIdObjArray(objArray, pos, courseIdObj) {
 
 function expandCourseFromStartToEnd(timeLineObjMap, startObj, startTime, endTime) {
     var currentTime = tickToNextTime(startTime);
-    while(isEarlierThan(currentTime, endTime)) {
+    while (isEarlierThan(currentTime, endTime)) {
         var timeObj = pickTimeObj(timeLineObjMap, currentTime);
         var courseIdObj = CreateCourseIdObj(startObj.courseId, startObj.dateIdx);
         courseIdObj.startObj = startObj;
@@ -215,7 +220,7 @@ function expandCoursesOnTable($scope, courses_data) {
                     // if start at this time point, then expand it to the end time point
                     if (timeObj.getHash() == startTime.getHash()) {
                         var endTime = CreateTimeObjByString(dateInfo.endTime);
-                        courseIdObj.rowSpan =  (endTime.getHash() - startTime.getHash()) / MIN_TIME_INTERVAL;
+                        courseIdObj.rowSpan = (endTime.getHash() - startTime.getHash()) / MIN_TIME_INTERVAL;
                         courseIdObj.overlapIdx = courseIdx;
                         expandCourseFromStartToEnd(timeLineObjMap, courseIdObj, startTime, endTime);
                     }
