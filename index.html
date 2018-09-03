@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+        <body>
+
+        <title>Hello, world!</title>
+    </head>
+    <body>
+
+        <table class="table table-bordered" ng-app="index" ng-controller="tableContent">
+            <thead>
+                <tr>
+                    <th style="width:120px">
+                        <p class="text-center">Time\Day</p>
+                    </th>
+                    <th ng-repeat="head in dayHeaders" colspan="{{head.span}}", border = 1>
+                        <p class="text-center">{{head.text}}</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-init="rowIdx=$index" ng-repeat="timePoint in timePointList">
+                    <td>
+                        <p class="text-right">{{timeObjToString(timePoint) + " ~ " + timeObjToString(tickToNextTime(timePoint))}}</p>
+                    </td>
+                    <td ng-init="colIdx=$index" ng-repeat="column in columnsOfTime[rowIdx]" colspan="{{column.colSpan}}" rowspan="{{column.rowSpan}}" >
+                        span: {{column.rowSpan}}, {{column.colSpan}}<br>
+                        courseId: {{column.courseId}}<br>
+                        time:{{timeObjToString(column.time)}}<br>
+                        day:{{column.day}}<br>
+                        row: {{rowIdx}}, column: {{colIdx}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <script src="courses_data.json"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+courses_data = 
+{
+    btcg: {
+        courseName: "Basic Techniques in Computer Graphics",
+        dates: [
+            {day: 2, startTime: "14:30", endTime: "16:00", type: "Lecture", room: "AH V"
+            },
+            {day: 4, startTime: "14:30", endTime: "16:00", type: "Lecture", room: "AH V"
+            },
+            {day: 1, startTime: "14:30", endTime: "16:00", type: "Tutorial", room: "AH III"
+            }
+        ],
+        ects: 6, ects_desc: "V3/Ü2"
+    },
+    rtg: {
+        courseName: "Real-Time Graphics",
+        dates: [
+            {day: 3, startTime: "14:30", endTime: "16:00",  startDate: "Oct 10", type: "Lecture", room: "AH V"
+            },
+            {day: 4, startTime: "16:30", endTime: "18:00", startDate: "Oct 11", type: "Lecture", room: "AH V"
+            },
+            {day: 3, startTime: "10:30", endTime: "12:00", startDate: "Oct 17", type: "Tutorial", room: "Aula 2 or room 118 at E3 (TBA)"
+            }
+        ],
+        ects: 6, ects_desc: "V3/Ü2"
+    },
+    pba: {
+        courseName: "Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "10:30", endTime: "12:00", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            },
+            {day: 2, startTime: "14:30", endTime: "16:00", startDate: "Oct 9", type: "Lecture/Exericise", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
+    test1: {
+        courseName: "Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "10:30", endTime: "12:00", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
+    test2: {
+        courseName: "Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "11:00", endTime: "12:30", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
+    test3: {
+        courseName: "Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "10:30", endTime: "12:00", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
+    test4: {
+        courseName: "Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "14:30", endTime: "16:00", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
+}
