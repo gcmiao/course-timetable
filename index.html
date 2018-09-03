@@ -31,7 +31,7 @@
                     </td>
                     <td ng-init="colIdx=$index" ng-repeat="column in columnsOfTime[rowIdx]" colspan="{{column.colSpan}}" rowspan="{{column.rowSpan}}" >
                         span: {{column.rowSpan}}, {{column.colSpan}}<br>
-                        courseId: {{column.courseId}}<br>
+                        courseId: <p class="text-danger"><strong>{{column.courseId}}</strong></p><br>
                         time:{{timeObjToString(column.time)}}<br>
                         day:{{column.day}}<br>
                         row: {{rowIdx}}, column: {{colIdx}}
@@ -39,7 +39,7 @@
                 </tr>
             </tbody>
         </table>
-        <script src="courses_data.json"></script>
+        <script src="courses_data.1.json"></script>
         <script src="main.js"></script>
     </body>
 </html>

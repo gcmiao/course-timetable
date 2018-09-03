@@ -53,7 +53,7 @@ courses_data =
     test3: {
         courseName: "Physically-Based Animation",
         dates: [
-            {day: 2, startTime: "12:00", endTime: "13:30", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            {day: 2, startTime: "10:30", endTime: "12:00", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
             }
         ],
         ects: 6
@@ -61,9 +61,57 @@ courses_data =
     test4: {
         courseName: "Physically-Based Animation",
         dates: [
+            {day: 2, startTime: "14:30", endTime: "16:00", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
+    test5: {
+        courseName: "Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "11:30", endTime: "13:00", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
+    test6: {
+        courseName: "Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "12:00", endTime: "13:30", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
+    test7: {
+        courseName: "Physically-Based Animation",
+        dates: [
             {day: 2, startTime: "12:30", endTime: "14:00", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
             }
         ],
         ects: 6
-    }
+    },
+    test8: {
+        courseName: "Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "11:00", endTime: "12:30", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
+    test9: {
+        courseName: "Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "12:00", endTime: "12:30", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
+    test10: {
+        courseName: "Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "12:30", endTime: "13:30", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            }
+        ],
+        ects: 6
+    },
 }
