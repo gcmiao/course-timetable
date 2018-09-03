@@ -1,13 +1,13 @@
 angular.module('index', []).controller('tableContent', function ($scope) {
     init($scope);
     addCoursesToTable($scope, $scope.selectedCourseIds, courses_data);
-    refreshTable($scope, courses_data);
+    refreshTable($scope);
 })
 
 MIN_TIME_INTERVAL = 30;
 NUMBER_OF_DAY_PER_WEEK = 5;
 START_TIME = CreateTimeObjByHM(9, 0);
-END_TIME = CreateTimeObjByHM(18, 0);
+END_TIME = CreateTimeObjByHM(18, 30);
 
 function init($scope) {
     $scope.dayHeaders = [{ text: "Mon", span: 1 }, { text: "Tue", span: 1 }, { text: "Wed", span: 1 }, { text: "Thu", span: 1 }, { text: "Fri", span: 1 }];
@@ -19,7 +19,7 @@ function init($scope) {
 
     var timePointList = new Array();
     var currentTime = START_TIME;
-    while (isEarlierThanOrEqualTo(currentTime, END_TIME)) {
+    while (isEarlierThan(currentTime, END_TIME)) {
         var timeObj = CreateTimeObjByHM(currentTime.hh, currentTime.mm);
         timePointList.push(timeObj);
         currentTime = tickToNextTime(currentTime);
@@ -42,7 +42,7 @@ function countValidCourseIdObj(courseIdObjs) {
     return count;
 }
 
-function refreshTable($scope, courses_data) {
+function refreshTable($scope) {
     $scope.todayIdxList.length = 0;
     for (var i = 0; i < NUMBER_OF_DAY_PER_WEEK; i++) {
         var timeLineObjMap = $scope.timeLineOfDays[i];
@@ -54,35 +54,12 @@ function refreshTable($scope, courses_data) {
             headerSpan = LCM(headerSpan, overlapCount);
             startObjList.length = 0;
             followObjList.length = 0;
-            var accumFollowColSpan = 0;
-            var avgFollowColSpan = headerSpan;
             for (var idx in timeLineObj.courseIdObjs) {
                 var courseIdObj = timeLineObj.courseIdObjs[idx];
                 if (courseIdObj != null) {
                     courseIdObj.startObj.overlapCount = Math.max(courseIdObj.startObj.overlapCount, overlapCount);
                 }
-                // if (courseIdObj.rowSpan > 0) {
-                //     startObjList.push(courseIdObj);
-                // }
-                // else
-                // {
-                //     followObjList.push(courseIdObj);
-                //     avgFollowColSpan = courseIdObj.startObj.colSpan;
-                //     accumFollowColSpan += avgFollowColSpan;
-                // }
             }
-            // // has new courses start
-            // if (startObjList.length > 0)
-            // {
-            //     var avgFirstObjColSpan = (headerSpan - accumFollowColSpan) / startObjList.length;
-            //     if (avgFirstObjColSpan < avgFollowColSpan) {
-            //         s
-            //     }
-
-            // }
-            // else { // do not has new courses, evenly follow divide columns if has enough space
-
-            // }
         });
         $scope.dayHeaders[i].span = headerSpan;
     }
@@ -112,6 +89,7 @@ function getColumnsByTime($scope, timeObj) {
                     continue;
                 }
                 var columnSpan = header.span / courseIdObj.startObj.overlapCount;
+                // only add the start object as column
                 if (courseIdObj.overlapIdx >= 0) {
                     courseIdObj.columnPos = preAccumColSpan;
                     columns.push({
@@ -122,6 +100,7 @@ function getColumnsByTime($scope, timeObj) {
                 else
                 {
                     var postAccumColSpan = courseIdObj.startObj.columnPos - preAccumColSpan;
+                    // add skipped(previous continue) empty column
                     if (postAccumColSpan > 0) {
                         columns.push({
                             colSpan: postAccumColSpan, rowSpan: 1,
@@ -132,6 +111,7 @@ function getColumnsByTime($scope, timeObj) {
                 }
                 preAccumColSpan += columnSpan;
             }
+            // add empty column at the end of the row
             if (preAccumColSpan < header.span) {
                 columns.push({
                     colSpan: header.span - preAccumColSpan, rowSpan: 1,
@@ -140,6 +120,7 @@ function getColumnsByTime($scope, timeObj) {
             }
         }
         else {
+            // no course at this time point
             columns.push({
                 colSpan: header.span, rowSpan: 1,
                 courseId: "", time: timeObj, day: dayIdx
@@ -164,13 +145,6 @@ function isEarlierThan(timeA, timeB) {
         return timeA.hh < timeB.hh;
 }
 
-function isEarlierThanOrEqualTo(timeA, timeB) {
-    if (timeA.hh == timeB.hh)
-        return timeA.mm <= timeB.mm;
-    else
-        return timeA.hh < timeB.hh;
-}
-
 function tickToNextTime(timeObj) {
     var obj = CreateTimeObjByHM(0, 0)
     obj.mm = timeObj.mm + MIN_TIME_INTERVAL;
@@ -191,15 +165,6 @@ function pickTimeObj(timeObjMap, timeObj) {
     return obj;
 }
 
-function findMinAvailableOverlapIdx(courseIdObjs) {
-    for (var idx in courseIdObjs) {
-        if (courseIdObjs[idx] == null) {
-            return idx;
-        }
-    }
-    return courseIdObjs.length;
-}
-
 function expandArray(array, newSize, defaultValue) {
     var offset = newSize - array.length;
     while(offset > 0) {
@@ -215,29 +180,6 @@ function insertToCourseIdObjArray(objArray, pos, courseIdObj) {
         objArray[i] = objArray[i - 1];
     }
     objArray[pos] = courseIdObj;
-}
-
-function addCourseToTimeObjs(timeLineObjMap, courseId, startTime, endTime) {
-    var currentTime = startTime;
-    var rowSpan = (endTime.getHash() - startTime.getHash()) / MIN_TIME_INTERVAL;
-    var startObj = null;
-    while (isEarlierThan(currentTime, endTime)) {
-        var timeObj = pickTimeObj(timeLineObjMap, currentTime);
-        var courseIdObj = CreateCourseIdObj(courseId, rowSpan);
-        var overlapIdx = 0;
-        if (startObj == null) {
-            startObj = courseIdObj;
-            overlapIdx = findMinAvailableOverlapIdx(timeObj.courseIdObjs);
-        }
-        else
-        {
-            overlapIdx = startObj.overlapIdx;
-        }
-        courseIdObj.startObj = startObj;
-        insertToCourseIdObjArray(timeObj.courseIdObjs, overlapIdx, courseIdObj);
-        currentTime = tickToNextTime(currentTime);
-        rowSpan = 0;
-    }
 }
 
 function expandCourseFromStartToEnd(timeLineObjMap, startObj, startTime, endTime) {
@@ -332,7 +274,6 @@ function CourseIdObj(id, dateIdx) {
     this.courseId = id;
     this.dateIdx = dateIdx;
     this.rowSpan = 1;
-    this.colSpan = 1;
     this.columnPos = 0;
     this.startObj = null;
     this.overlapCount = 1;
