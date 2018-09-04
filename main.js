@@ -313,10 +313,10 @@ function addCourseStartToTable(timeLineOfDays, courseId, courses_data) {
 }
 
 function addCoursesToTable($scope, courseIds, courses_data) {
-    for (var courseId of courseIds) {
+    courseIds.forEach(function(courseId) {
         addCourseStartToTable($scope.timeLineOfDays, courseId, courses_data);
-    }
-    expandCoursesOnTable($scope, courses_data)
+    });
+    expandCoursesOnTable($scope, courses_data);
 }
 
 function TimeObj(hh, mm) {
