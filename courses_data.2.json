@@ -27,7 +27,7 @@ courses_data =
             {day: 1, startTime: "14:30", endTime: "16:00", type: "Tutorial", room: "AH III"
             }
         ],
-        ects: 6, ects_desc: "V3/Ü2"
+        ects: 6, ectsDesc: "V3/Ü2"
     },
     rtg: {
         courseName: "Real-Time Graphics",
@@ -39,7 +39,7 @@ courses_data =
             {day: 3, startTime: "10:30", endTime: "12:00", startDate: "Oct 17", type: "Tutorial", room: "Aula 2 or room 118 at E3 (TBA)"
             }
         ],
-        ects: 6, ects_desc: "V3/Ü2"
+        ects: 6, ectsDesc: "V3/Ü2"
     },
     pba: {
         courseName: "Physically-Based Animation",
