@@ -6,30 +6,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
         <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
-        <body>
 
-        <title>Hello, world!</title>
+        <title>Course Timetable</title>
+
     </head>
     <body>
 
-        <table class="table table-bordered" ng-app="index" ng-controller="tableContent">
+        <div class="round-border"><p>
+        <table ng-app="index" ng-controller="tableContent">
             <thead>
                 <tr>
                     <th style="width:120px">
-                        <p class="text-center">Time\Day</p>
+                        <div class="column-header">Time\Day</div>
                     </th>
-                    <th ng-repeat="head in dayHeaders" colspan="{{head.span}}", border = 1>
-                        <p class="text-center">{{head.text}}</p>
+                    <th ng-repeat="head in dayHeaders" colspan="{{head.span}}">
+                        <div  class="column-header day-header">{{head.text}}</div>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-init="rowIdx=$index" ng-repeat="timePoint in timePointList">
                     <td>
-                        <p class="text-right">{{timeObjToString(timePoint) + " ~ " + timeObjToString(tickToNextTime(timePoint))}}</p>
+                        <div class="row-header">{{timeObjToString(timePoint) + " ~ " + timeObjToString(tickToNextTime(timePoint))}}</div>
                     </td>
-                    <td ng-init="colIdx=$index" ng-repeat="column in columnsOfTime[rowIdx]" colspan="{{column.colSpan}}" rowspan="{{column.rowSpan}}" >
+                    <td class="course-content" ng-init="colIdx=$index" ng-repeat="column in columnsOfTime[rowIdx]" colspan="{{column.colSpan}}" rowspan="{{column.rowSpan}}" >
                         <h4><p class="text-center" ng-show="column.courseId != null">{{courses_data[column.courseId].courseName}}<br></p></h4>
                         <p class="text-center" ng-show="column.courseId != null">Type: {{courses_data[column.courseId].dates[column.dateIdx].type}}<br></p>
                         <p class="text-center" ng-show="column.courseId != null">Room: {{courses_data[column.courseId].dates[column.dateIdx].room}}</p>
@@ -37,6 +39,7 @@
                 </tr>
             </tbody>
         </table>
+        </p></div>
         <script src="courses_data.2.json"></script>
         <script src="main.js"></script>
     </body>
