@@ -144,6 +144,17 @@ function refreshTable($scope) {
     }
 }
 
+function getBorderStyle(courseIdObj) {
+    var style = "";
+    if (courseIdObj.overlapIdx >= 0) {
+        style += " cell-not-empty";
+    }
+    if (courseIdObj.overlapIdx == 0) {
+        style += " cell-leftmost";
+    }
+    return style;
+}
+
 function getColumnsByTime($scope, timeObj) {
     var columns = new Array();
     // travel days of the week
@@ -167,6 +178,7 @@ function getColumnsByTime($scope, timeObj) {
                     columns.push({
                         colSpan: columnSpan, rowSpan: courseIdObj.rowSpan,
                         courseId: courseIdObj.courseId, dateIdx: courseIdObj.dateIdx,
+                        border: getBorderStyle(courseIdObj),
                         debug: { time: timeObj, day: dayIdx }
                     });
                 }
@@ -177,6 +189,7 @@ function getColumnsByTime($scope, timeObj) {
                         columns.push({
                             colSpan: postAccumColSpan, rowSpan: 1,
                             courseId: null, dateIdx: -1,
+                            border:"cell-empty cell-rightmost",
                             debug: { time: timeObj, day: dayIdx }
                         });
                         preAccumColSpan += postAccumColSpan;
@@ -189,6 +202,7 @@ function getColumnsByTime($scope, timeObj) {
                 columns.push({
                     colSpan: header.span - preAccumColSpan, rowSpan: 1,
                     courseId: null, dateIdx: -1,
+                    border:"cell-empty cell-leftmost",
                     debug: { time: timeObj, day: dayIdx }
                 });
             }
@@ -198,6 +212,7 @@ function getColumnsByTime($scope, timeObj) {
             columns.push({
                 colSpan: header.span, rowSpan: 1,
                 courseId: null, dateIdx: -1,
+                border:"cell-empty",
                 debug: { time: timeObj, day: dayIdx }
             });
         }

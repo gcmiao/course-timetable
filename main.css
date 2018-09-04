@@ -9,8 +9,22 @@ th {
     min-height:100px;
 }
 td {
+    border-bottom:1px solid lightgray;
+    border-left:1px dashed  black;
+}
+td.cell-leftmost {
     border-left:2px solid black;
-    border-bottom:1px solid gray;
+}
+td.cell-rightmost {
+    border-right:2px solid black;
+}
+td.cell-not-empty {
+    border-top:2px solid black;
+    border-bottom:2px solid black;
+}
+td.cell-empty {
+    border-left:2px solid black;
+    border-bottom:1px solid lightgray;
 }
 .course-content {
     min-width:160px;
