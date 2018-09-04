@@ -12,10 +12,10 @@
         <title>Course Timetable</title>
 
     </head>
-    <body>
+    <body ng-app="index" ng-controller="main">
 
-        <div class="round-border"><p>
-        <table ng-app="index" ng-controller="tableContent">
+        <table>
+            <caption style="color:black;"><h2><p class="text-center">{{semesterName}}</p></h2></caption>
             <thead>
                 <tr>
                     <th style="width:120px">
@@ -39,7 +39,6 @@
                 </tr>
             </tbody>
         </table>
-        </p></div>
         <script src="courses_data.2.json"></script>
         <script src="main.js"></script>
     </body>

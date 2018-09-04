@@ -1,23 +1,24 @@
-angular.module('index', []).controller('tableContent', function ($scope) {
+angular.module('index', []).controller('main', function ($scope) {
     $scope.courses_data = courses_data;
+    $scope.selected_courses = selected_courses;
     init($scope);
+    loadCourseIds($scope);
     addCoursesToTable($scope, $scope.selectedCourseIds, courses_data);
     refreshTable($scope);
 })
 
-MIN_TIME_INTERVAL = 30;
-NUMBER_OF_DAY_PER_WEEK = 5;
-START_TIME = CreateTimeObjByHM(9, 0);
-END_TIME = CreateTimeObjByHM(18, 30);
+const MIN_TIME_INTERVAL = 30;
+const NUMBER_OF_DAY_PER_WEEK = 5;
+const START_TIME = CreateTimeObjByHM(9, 0);
+const END_TIME = CreateTimeObjByHM(18, 30);
+const URL_PARAM_NAME_SEMESTER_IDX = "semester";
 
 function init($scope) {
     $scope.dayHeaders = [{ text: "Mon", span: 1 }, { text: "Tue", span: 1 }, { text: "Wed", span: 1 }, { text: "Thu", span: 1 }, { text: "Fri", span: 1 }];
     $scope.todayIdxList = new Array();
     $scope.columnsOfTime = new Array();
     $scope.timeLineOfDays = CreatetimeLineOfDays();
-    //$scope.selectedCourseIds = ["btcg", "rtg", "pba", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test10"];
-    //$scope.selectedCourseIds = ["btcg", "rtg", "pba", "test1", "test2", "test3", "test4"];
-    $scope.selectedCourseIds = ["btcg", "rtg", "pba"];
+    $scope.semesterIdx = getUrlParam(URL_PARAM_NAME_SEMESTER_IDX, 0);
 
     var timePointList = new Array();
     var currentTime = START_TIME;
@@ -41,6 +42,63 @@ function init($scope) {
         }
         return 0;
     }
+}
+
+function getUrlParam(paramName, defaultValue) {
+    var url = window.location.search;
+    var retParam = defaultValue;
+    var paramStartIdx = url.indexOf("?")
+    if (paramStartIdx != -1) {
+        var paramStr = url.substr(paramStartIdx + 1);
+        var paramPairs = paramStr.split("&");
+        for (var i in paramPairs) {
+            var paramPair = paramPairs[i];
+            if (typeof (paramPair) == "string") {
+                paramPair = paramPair.split("=");
+                paramPair[1] = unescape(paramPair[1]);
+                paramPairs[i] = paramPair;
+            }
+            if (paramPair[0] == paramName) {
+                retParam = paramPair[1];
+            }
+        }
+    }
+    return retParam;
+}
+
+function loadCourseIds($scope) {
+    $scope.selectedCourseIds = new Set();
+    $scope.unselectedCourseIds = getAllCourseIds($scope);
+    if ($scope.semesterIdx >= $scope.selected_courses.length) {
+        $scope.semesterIdx = $scope.selected_courses.length - 1;
+    }
+    var semesterCourseInfo = $scope.selected_courses[$scope.semesterIdx];
+    $scope.semesterName = semesterCourseInfo.semester;
+    for (var idx in semesterCourseInfo.courseIds) {
+        selectCourseById($scope, semesterCourseInfo.courseIds[idx]);
+    }
+}
+
+function selectCourseById($scope, courseId) {
+    if ($scope.unselectedCourseIds.has(courseId)) {
+        $scope.unselectedCourseIds.delete(courseId);
+        $scope.selectedCourseIds.add(courseId);
+    }
+}
+
+function unselectCourseById($scope, courseId) {
+    if ($scope.selectedCourseIds.has(courseId)) {
+        $scope.selectedCourseIds.delete(courseId);
+        $scope.unselectedCourseIds.add(courseId);
+    }
+}
+
+function getAllCourseIds($scope) {
+    var ids = new Set();
+    for (courseId in $scope.courses_data) {
+        ids.add(courseId);
+    }
+    return ids;
 }
 
 function durationOfTimeSectionInMM(startTimeObj, endTimeObj) {
@@ -96,7 +154,6 @@ function getColumnsByTime($scope, timeObj) {
         if (timeLineObjMap.has(timeObj.getHash())) {
             var timeLineObj = timeLineObjMap.get(timeObj.getHash());
             var preAccumColSpan = 0;
-            var lastAccumColSpan = 0;
             // travel all overlap courses
             for (var courseIdx in timeLineObj.courseIdObjs) {
                 var courseIdObj = timeLineObj.courseIdObjs[courseIdx];
@@ -256,8 +313,8 @@ function addCourseStartToTable(timeLineOfDays, courseId, courses_data) {
 }
 
 function addCoursesToTable($scope, courseIds, courses_data) {
-    for (i in courseIds) {
-        addCourseStartToTable($scope.timeLineOfDays, courseIds[i], courses_data);
+    for (var courseId of courseIds) {
+        addCourseStartToTable($scope.timeLineOfDays, courseId, courses_data);
     }
     expandCoursesOnTable($scope, courses_data)
 }
