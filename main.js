@@ -32,11 +32,14 @@ function init($scope) {
         var str = timeObj.hh + ':' + (timeObj.mm < 10 ? '0' + timeObj.mm : timeObj.mm);
         return str;
     }
-    $scope.getCourseDuration = function(courseId, dateIdx) {
-        var dateInfo = $scope.courses_data[courseId].dates[dateIdx];
-        var startTimeObj = CreateTimeObjByString(dateInfo.startTime);
-        var endTimeObj = CreateTimeObjByString(dateInfo.endTime);
-        return durationOfTimeSectionInMM(startTimeObj, endTimeObj);
+    $scope.getCourseDuration = function (courseId, dateIdx) {
+        if (courseId != null) {
+            var dateInfo = $scope.courses_data[courseId].dates[dateIdx];
+            var startTimeObj = CreateTimeObjByString(dateInfo.startTime);
+            var endTimeObj = CreateTimeObjByString(dateInfo.endTime);
+            return durationOfTimeSectionInMM(startTimeObj, endTimeObj);
+        }
+        return 0;
     }
 }
 
