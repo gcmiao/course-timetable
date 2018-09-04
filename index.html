@@ -31,7 +31,7 @@
                     <td>
                         <div class="row-header">{{timeObjToString(timePoint) + " ~ " + timeObjToString(tickToNextTime(timePoint))}}</div>
                     </td>
-                    <td class="course-content" ng-init="colIdx=$index" ng-repeat="column in columnsOfTime[rowIdx]" colspan="{{column.colSpan}}" rowspan="{{column.rowSpan}}" >
+                    <td class="course-content" style="background-color:{{courses_data[column.courseId].bgColor}};" ng-init="colIdx=$index" ng-repeat="column in columnsOfTime[rowIdx]" colspan="{{column.colSpan}}" rowspan="{{column.rowSpan}}" >
                         <h4><p class="text-center" ng-show="column.courseId != null">{{courses_data[column.courseId].courseName}}<br></p></h4>
                         <p class="text-center" ng-show="column.courseId != null">Type: {{courses_data[column.courseId].dates[column.dateIdx].type}}, Duration: {{getCourseDuration(column.courseId, column.dateIdx)}} min.<br></p>
                         <p class="text-center" ng-show="column.courseId != null">ECTS: {{courses_data[column.courseId].ects}} ({{courses_data[column.courseId].ectsDesc}}) Room: {{courses_data[column.courseId].dates[column.dateIdx].room}}</p>

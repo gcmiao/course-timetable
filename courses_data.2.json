@@ -5,6 +5,7 @@ selected_courses =
         courseIds: [
             "btcg",
             "rtg",
+            "pba"
         ]
     },
     {
@@ -27,7 +28,8 @@ courses_data =
             {day: 1, startTime: "14:30", endTime: "16:00", type: "Tutorial", room: "AH III"
             }
         ],
-        ects: 6, ectsDesc: "V3/Ü2"
+        ects: 6, ectsDesc: "V3/Ü2",
+        bgColor: "lightblue"
     },
     rtg: {
         courseName: "Real-Time Graphics",
@@ -39,7 +41,8 @@ courses_data =
             {day: 3, startTime: "10:30", endTime: "12:00", startDate: "Oct 17", type: "Tutorial", room: "Aula 2 or room 118 at E3 (TBA)"
             }
         ],
-        ects: 6, ectsDesc: "V3/Ü2"
+        ects: 6, ectsDesc: "V3/Ü2",
+        bgColor: "lightgreen"
     },
     pba: {
         courseName: "Physically-Based Animation",
@@ -49,6 +52,7 @@ courses_data =
             {day: 2, startTime: "14:30", endTime: "16:00", startDate: "Oct 9", type: "Lecture/Exericise", room: "E3 Room 9222"
             }
         ],
-        ects: 6
+        ects: 6,
+        bgColor: "lightsalmon"
     }
 }
