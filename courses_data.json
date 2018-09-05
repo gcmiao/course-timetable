@@ -29,7 +29,7 @@ courses_data =
             }
         ],
         ects: 6, ectsDesc: "(V3/Ü2)",
-        bgColor: "lightblue"
+        bgColor: "aachen-blue-bg"
     },
     rtg: {
         courseName: "Real-Time Graphics",
@@ -42,7 +42,7 @@ courses_data =
             }
         ],
         ects: 6, ectsDesc: "(V3/Ü2)",
-        bgColor: "lightgreen"
+        bgColor: "aachen-blue-bg"
     },
     pba: {
         courseName: "Physically-Based Animation",
@@ -53,6 +53,6 @@ courses_data =
             }
         ],
         ects: 6,
-        bgColor: "lightsalmon"
+        bgColor: "aachen-blue-bg",
     }
 }
