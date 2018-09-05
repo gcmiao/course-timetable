@@ -7,7 +7,7 @@ angular.module('index', []).controller('main', function ($scope) {
     refreshTable($scope);
 })
 
-const MIN_TIME_INTERVAL = 30;
+const MIN_TIME_INTERVAL = 15;
 const NUMBER_OF_DAY_PER_WEEK = 5;
 const START_TIME = CreateTimeObjByHM(9, 0);
 const END_TIME = CreateTimeObjByHM(18, 30);
