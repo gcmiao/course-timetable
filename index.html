@@ -12,10 +12,21 @@
         <title>Course Timetable</title>
 
     </head>
-    <body ng-app="index" ng-controller="main">
 
+    <body ng-app="index" ng-controller="main">
+        <h2 >
+            <ul style="text-align:center">
+                <li class="sem-nav {{getSemStyle(semIdx)}}"  ng-init="semIdx=$index;" ng-repeat="sem in selected_courses" ng-click="onSemClicked(semIdx)">
+                    {{sem.semester}}
+                </li>
+            </ul>
+        </h2>
         <table>
-            <caption style="color:black;"><h2><p class="text-center">{{semesterName}}</p></h2></caption>
+            <caption style="color:black;">
+                <h2 class="text-center"> 
+                    {{semesterName}}
+                </h2>
+            </caption>
             <thead>
                 <tr>
                     <th class="course" style="width:120px">

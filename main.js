@@ -54,6 +54,14 @@ function init($scope) {
         });
         return courses;
     }
+    $scope.onSemClicked = function (semIdx) {
+        window.location.search = '?semester=' + semIdx;
+    }
+    $scope.getSemStyle = function (semIdx) {
+        if (semIdx == $scope.semesterIdx) {
+            return "selected";
+        }
+    }
 }
 
 function refreshNeverSelectedCourse($scope) {

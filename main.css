@@ -4,6 +4,18 @@ body {
 table {
     border:2px solid black;
 }
+li.sem-nav {
+    display:inline;
+    margin:2px;
+    color:white;
+    background-color:rgb(146, 181, 216);
+}
+li.sem-nav:hover, li.sem-nav:active {
+    background-color: #337ab7;
+}
+li.selected {
+    background-color: #337ab7;
+}
 th.course {
     border:2px solid black;
     min-height:100px;

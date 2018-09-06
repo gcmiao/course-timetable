@@ -15,11 +15,29 @@ selected_courses =
         ]
     },
     {
-        semester: "2018 SS",
+        semester: "2019 SS",
         courseIds: [
             "hpmc",
             "giibr",
             "gp",
+            "-dvab"
+        ]
+    },
+    {
+        semester: "2019/20 WS",
+        courseIds: [
+            "-hpmc",
+            "-giibr",
+            "-gp",
+            "-dvab"
+        ]
+    },
+    {
+        semester: "2020 SS",
+        courseIds: [
+            "-hpmc",
+            "-giibr",
+            "-gp",
             "-dvab"
         ]
     }
