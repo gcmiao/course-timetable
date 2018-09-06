@@ -10,7 +10,8 @@ selected_courses =
             "rtg",
             "pba",
             "pp",
-            "cda"
+            "cda",
+            "dava",
         ]
     },
     {
@@ -19,7 +20,7 @@ selected_courses =
             "hpmc",
             "giibr",
             "gp",
-            "dav"
+            "-dvab"
         ]
     }
 ]
@@ -220,7 +221,7 @@ courses_data =
         bgColor: "bonn-yellow-bg",
         homePage: "https://www.campus.rwth-aachen.de/my/rwth/all_en/event.asp?gguid=0xE7E65B1CA3F62E41936771DD97CA1492&tguid=0xEBB2D1C29613C04FBF47F82813B5A4E9"
     },
-    dva: {
+    dvab: {
         courseName: "Data Visualisation and Analysis (Bonn)",
         dates: [
             {day: 2, startTime: "13:00", endTime: "14:30", startDate: "April 17", type: "Lecture", room: "TBA"
@@ -232,5 +233,18 @@ courses_data =
         ects: 6, ectsDesc: "",
         bgColor: "bonn-yellow-bg",
         homePage: "https://www.campus.rwth-aachen.de/my/rwth/all_en/event.asp?gguid=0x612EFB0406A43443ABB323AB8F13604E&tguid=0xEBB2D1C29613C04FBF47F82813B5A4E9"
+    },
+    dava: {
+        courseName: "Data Analysis and Visualization (Aachen)",
+        dates: [
+            {day: 5, startTime: "10:30", endTime: "12:00", startDate: "April 17", type: "Lecture", room: "2359|118 (i8 Seminar Room)"
+            },
+            {day: 2, startTime: "13:30", endTime: "14:15", startDate: "April 24", type: "Lecture", room: "2356|050 (AH V)"
+            }
+        ],
+        cat: "mmui",
+        ects: 4, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.graphics.rwth-aachen.de/course/162/"
     }
 }
