@@ -18,17 +18,17 @@
             <caption style="color:black;"><h2><p class="text-center">{{semesterName}}</p></h2></caption>
             <thead>
                 <tr>
-                    <th style="width:120px">
+                    <th class="course" style="width:120px">
                         <div class="column-header">Time\Day</div>
                     </th>
-                    <th ng-repeat="head in dayHeaders" colspan="{{head.span}}">
+                    <th class="course" ng-repeat="head in dayHeaders" colspan="{{head.span}}">
                         <div  class="column-header day-header">{{head.text}}</div>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-init="rowIdx=$index" ng-repeat="timePoint in timePointList">
-                    <td>
+                    <td class="course">
                         <div class="row-header">{{timeObjToString(timePoint) + " ~ " + timeObjToString(tickToNextTime(timePoint))}}</div>
                     </td>
                     <td class="course-content {{column.border}} {{courses_data[column.courseId].bgColor}}" ng-init="colIdx=$index" ng-repeat="column in columnsOfTime[rowIdx]" colspan="{{column.colSpan}}" rowspan="{{column.rowSpan}}" >

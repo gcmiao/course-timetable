@@ -189,7 +189,7 @@ function getColumnsByTime($scope, timeObj) {
                         columns.push({
                             colSpan: postAccumColSpan, rowSpan: 1,
                             courseId: null, dateIdx: -1,
-                            border:"cell-empty cell-rightmost",
+                            border: "cell-empty cell-rightmost",
                             debug: { time: timeObj, day: dayIdx }
                         });
                         preAccumColSpan += postAccumColSpan;
@@ -202,7 +202,7 @@ function getColumnsByTime($scope, timeObj) {
                 columns.push({
                     colSpan: header.span - preAccumColSpan, rowSpan: 1,
                     courseId: null, dateIdx: -1,
-                    border:"cell-empty cell-leftmost",
+                    border: "cell-empty cell-leftmost",
                     debug: { time: timeObj, day: dayIdx }
                 });
             }
@@ -212,7 +212,7 @@ function getColumnsByTime($scope, timeObj) {
             columns.push({
                 colSpan: header.span, rowSpan: 1,
                 courseId: null, dateIdx: -1,
-                border:"cell-empty",
+                border: "cell-empty",
                 debug: { time: timeObj, day: dayIdx }
             });
         }
@@ -328,7 +328,7 @@ function addCourseStartToTable(timeLineOfDays, courseId, courses_data) {
 }
 
 function addCoursesToTable($scope, courseIds, courses_data) {
-    courseIds.forEach(function(courseId) {
+    courseIds.forEach(function (courseId) {
         addCourseStartToTable($scope.timeLineOfDays, courseId, courses_data);
     });
     expandCoursesOnTable($scope, courses_data);

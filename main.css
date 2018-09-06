@@ -4,13 +4,9 @@ body {
 table {
     border:2px solid black;
 }
-th {
+th.course {
     border:2px solid black;
     min-height:100px;
-}
-td {
-    border-bottom:1px solid lightgray;
-    border-left:1px dashed  black;
 }
 td.cell-leftmost {
     border-left:2px solid black;
@@ -24,9 +20,13 @@ td.cell-not-empty {
 }
 td.cell-empty {
     border-left:2px solid black;
+}
+td.course {
     border-bottom:1px solid lightgray;
 }
 .course-content {
+    border-bottom:1px solid lightgray;
+    border-left:1px dashed  black;
     min-width:160px;
     padding:1px 10px 1px 10px;
 }
