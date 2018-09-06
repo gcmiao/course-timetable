@@ -47,6 +47,7 @@
                             <h4><p>{{courses_data[column.courseId].courseName}}<br></p></h4>
                             <p>Type: {{courses_data[column.courseId].dates[column.dateIdx].type}}, Duration: {{getCourseDuration(column.courseId, column.dateIdx)}} min.<br></p>
                             <p>ECTS: {{courses_data[column.courseId].ects}}{{courses_data[column.courseId].ectsDesc}} Room: {{courses_data[column.courseId].dates[column.dateIdx].room}}</p>
+                            <p ng-show="courses_data[column.courseId].hints != null">Hints: {{courses_data[column.courseId].hints}}</p>
                         </div>
                     </td>
                 </tr>
@@ -70,6 +71,12 @@
                         <td class="ects text-center">{{semesterECTS[ectsInfo.cat].value}}</td>
                         <td class="ects text-center">{{totalSelectedECTS[ectsInfo.cat].value}}</td>
                         <td class="ects text-center">{{ectsInfo.value}}</td>
+                    </tr>
+                    <tr>
+                        <td class="ects text-right"> <strong>Total</strong>:</td>
+                        <td class="ects text-center">{{sumTotalECTS(semesterECTS)}}</td>
+                        <td class="ects text-center">{{sumTotalECTS(totalSelectedECTS)}}</td>
+                        <td class="ects text-center">{{sumTotalECTS(total_required_ects)}}</td>
                     </tr>
                 </tbody>
             </table>

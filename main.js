@@ -62,6 +62,13 @@ function init($scope) {
             return "selected";
         }
     }
+    $scope.sumTotalECTS = function (ectsMap) {
+        var sum = 0;
+        for (var idx in ectsMap) {
+            sum += ectsMap[idx].value;
+        }
+        return sum;
+    }
 }
 
 function refreshNeverSelectedCourse($scope) {
