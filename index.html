@@ -39,6 +39,29 @@
                 </tr>
             </tbody>
         </table>
+
+        <div>
+            <table>
+                <caption><h3>Semester ECTS:</h3></caption>
+                <thead>
+                <tr>
+                    <th class="ects text-center" style="border:1px solid black">Category</th>
+                    <th class="ects text-center" style="border:1px solid black">This Semester ECTS</th>
+                    <th class="ects text-center" style="border:1px solid black">Total Selected ECTS</th>
+                    <th class="ects text-center" style="border:1px solid black">Total Required ECTS</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ectsInfo in total_required_ects">
+                        <td class="ects text-right">{{ectsInfo.name}}:</td>
+                        <td class="ects text-center">{{semesterECTS[ectsInfo.cat].value}}</td>
+                        <td class="ects text-center">{{totalSelectedECTS[ectsInfo.cat].value}}</td>
+                        <td class="ects text-center">{{ectsInfo.value}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4 ></h4>
+        </div>
         <script src="courses_data.json"></script>
         <script src="main.js"></script>
     </body>

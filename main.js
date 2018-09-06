@@ -1,6 +1,7 @@
 angular.module('index', []).controller('main', function ($scope) {
     $scope.courses_data = courses_data;
     $scope.selected_courses = selected_courses;
+    $scope.total_required_ects = total_required_ects;
     init($scope);
     loadCourseIds($scope);
     addCoursesToTable($scope, $scope.selectedCourseIds, courses_data);
@@ -19,6 +20,8 @@ function init($scope) {
     $scope.columnsOfTime = new Array();
     $scope.timeLineOfDays = CreatetimeLineOfDays();
     $scope.semesterIdx = getUrlParam(URL_PARAM_NAME_SEMESTER_IDX, 0);
+    $scope.semesterECTS = null;
+    $scope.totalSelectedECTS = null;
 
     var timePointList = new Array();
     var currentTime = START_TIME;
@@ -69,6 +72,16 @@ function getUrlParam(paramName, defaultValue) {
 function loadCourseIds($scope) {
     $scope.selectedCourseIds = new Set();
     $scope.unselectedCourseIds = getAllCourseIds($scope);
+
+    $scope.totalSelectedECTS = {};
+    $scope.unselectedCourseIds.forEach(function (courseId) {
+        var courseData = $scope.courses_data[courseId];
+        if ($scope.totalSelectedECTS[courseData.cat] == null) {
+            $scope.totalSelectedECTS[courseData.cat] = { cat: courseData.cat, value: 0 };
+        }
+        $scope.totalSelectedECTS[courseData.cat].value += courseData.ects;
+    });
+
     if ($scope.semesterIdx >= $scope.selected_courses.length) {
         $scope.semesterIdx = $scope.selected_courses.length - 1;
     }
@@ -77,6 +90,15 @@ function loadCourseIds($scope) {
     for (var idx in semesterCourseInfo.courseIds) {
         selectCourseById($scope, semesterCourseInfo.courseIds[idx]);
     }
+
+    $scope.semesterECTS = {};
+    $scope.selectedCourseIds.forEach(function (courseId) {
+        var courseData = $scope.courses_data[courseId];
+        if ($scope.semesterECTS[courseData.cat] == null) {
+            $scope.semesterECTS[courseData.cat] = { cat: courseData.cat, value: 0 };
+        }
+        $scope.semesterECTS[courseData.cat].value += courseData.ects;
+    });
 }
 
 function selectCourseById($scope, courseId) {

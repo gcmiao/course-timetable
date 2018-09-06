@@ -24,6 +24,39 @@ selected_courses =
     }
 ]
 
+total_required_ects = [
+    {
+        cat: "mmt",
+        name: "Multimedia Technology",
+        value: 28
+    },
+    {
+        cat: "cct",
+        name: "Computer and Communication Technology", 
+        value: 20
+    },
+    {
+        cat: "mmui",
+        name: "Multimedia Use and Impact",
+        value: 10
+    },
+    {
+        cat: "flab",
+        name: "Fraunhofer Lab",
+        value: 10
+    },
+    {
+        cat: "olab",
+        name: "Other Lab",
+        value: 10
+    },
+    {
+        cat: "cs",
+        name: "Communication Skills",
+        value: 12
+    }
+]
+
 courses_data = 
 {
     btcga: {

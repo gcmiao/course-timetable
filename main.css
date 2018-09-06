@@ -24,6 +24,11 @@ td.cell-empty {
 td.course {
     border-bottom:1px solid lightgray;
 }
+td.ects, th.ects {
+    padding:5px;
+    border-left:1px solid balck;
+    border-right:1px solid black;
+}
 .course-content {
     border-bottom:1px solid lightgray;
     border-left:1px dashed  black;
