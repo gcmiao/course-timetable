@@ -6,6 +6,7 @@ angular.module('index', []).controller('main', function ($scope) {
     loadCourseIds($scope);
     addCoursesToTable($scope, $scope.selectedCourseIds, courses_data);
     refreshTable($scope);
+    refreshNeverSelectedCourse($scope);
 })
 
 const MIN_TIME_INTERVAL = 15;
@@ -22,6 +23,7 @@ function init($scope) {
     $scope.semesterIdx = getUrlParam(URL_PARAM_NAME_SEMESTER_IDX, 0);
     $scope.semesterECTS = null;
     $scope.totalSelectedECTS = null;
+    $scope.neverSelectedCourseIds = null;
 
     var timePointList = new Array();
     var currentTime = START_TIME;
@@ -44,6 +46,24 @@ function init($scope) {
             return durationOfTimeSectionInMM(startTimeObj, endTimeObj);
         }
         return 0;
+    }
+    $scope.getNeverSelectedCourseIds = function () {
+        var courses = new Array();
+        $scope.neverSelectedCourseIds.forEach(function (courseId) {
+            courses.push(courseId);
+        });
+        return courses;
+    }
+}
+
+function refreshNeverSelectedCourse($scope) {
+    $scope.neverSelectedCourseIds = getAllCourseIds($scope);
+    for (var semIdx in $scope.selected_courses) {
+        var semCourseInfo = $scope.selected_courses[semIdx];
+        for (var courseIdx in semCourseInfo.courseIds) {
+            var courseId = semCourseInfo.courseIds[courseIdx];
+            $scope.neverSelectedCourseIds.delete(courseId);
+        }
     }
 }
 
