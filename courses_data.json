@@ -75,7 +75,7 @@ total_required_ects = [
 courses_data = 
 {
     btcga: {
-        courseName: "Basic Techniques in Computer Graphics (Aachen)",
+        courseName: "Basic Techniques in Computer Graphics",
         dates: [
             {day: 2, startTime: "14:30", endTime: "16:00", startDate: "", type: "Lecture", room: "AH V"
             },
@@ -131,6 +131,19 @@ courses_data =
         ects: 6,
         bgColor: "aachen-blue-bg",
         homePage: "https://animation.rwth-aachen.de/course/20/"
+    },
+    atpba: {
+        courseName: "Advanced Techniques in Physically-Based Animation",
+        dates: [
+            {day: 2, startTime: "10:15", endTime: "11:45", startDate: "Oct 9", type: "Lecture", room: "E3 Room 9222"
+            },
+            {day: 2, startTime: "14:15", endTime: "15:45", startDate: "Oct 9", type: "Lecture/Exericise", room: "E3 Room 9222"
+            }
+        ],
+        cat: "mmt",
+        ects: 6,
+        bgColor: "aachen-blue-bg",
+        homePage: "https://animation.rwth-aachen.de/course/19/"
     },
     giibr: {
         courseName: "Global Illumination and Image-Based Rendering",
@@ -250,7 +263,7 @@ courses_data =
         homePage: "https://www.campus.rwth-aachen.de/my/rwth/all_en/event.asp?gguid=0x612EFB0406A43443ABB323AB8F13604E&tguid=0xEBB2D1C29613C04FBF47F82813B5A4E9"
     },
     dava: {
-        courseName: "Data Analysis and Visualization (Aachen)",
+        courseName: "Data Analysis and Visualization",
         dates: [
             {day: 5, startTime: "10:30", endTime: "12:00", startDate: "April 17", type: "Lecture", room: "2359|118 (i8 Seminar Room)"
             },
@@ -261,5 +274,116 @@ courses_data =
         ects: 4, ectsDesc: "",
         bgColor: "aachen-blue-bg",
         homePage: "https://www.graphics.rwth-aachen.de/course/162/"
+    },
+
+
+
+
+    belf: {
+        courseName: "Blockchain Experience Lab (Fraunhofer Lab)",
+        dates: [
+        ],
+        cat: "flab",
+        ects: 10, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.graphics.rwth-aachen.de/course/162/"
+    },
+    mltaf: {
+        courseName: "Machine Learning for Text Analysis (Fraunhofer Lab)",
+        dates: [
+        ],
+        cat: "flab",
+        ects: 10, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.campus.rwth-aachen.de/my/rwth/all_en/event.asp?gguid=0xBA0855692E88C24BA10F3110BE30952B&tguid=0xEBB2D1C29613C04FBF47F82813B5A4E9"
+    },
+    dvaf: {
+        courseName: "Data Visualisation and Analytics (Fraunhofer Lab)",
+        dates: [
+        ],
+        cat: "flab",
+        ects: 10, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.campus.rwth-aachen.de/my/rwth/all_en/event.asp?gguid=0xD9B75C5797EC1A488B46640EFAFC9595&tguid=0x0C459501268AC043A64ED1E2F7FA6BEF"
+    },
+
+
+
+
+    gd: {
+        courseName: "Game Development (Lab)",
+        dates: [
+        ],
+        cat: "olab",
+        ects: 7, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.graphics.rwth-aachen.de/course/153/"
+    },
+    gp: {
+        courseName: "Game Physics (Lab)",
+        dates: [
+        ],
+        cat: "olab",
+        ects: 10, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://animation.rwth-aachen.de/course/17/"
+    },
+    fscg: {
+        courseName: "Fluid Simulation in Computer Graphics (Lab)",
+        dates: [
+        ],
+        cat: "olab",
+        ects: 10, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://animation.rwth-aachen.de/course/21/"
+    },
+
+
+
+
+    tw: {
+        courseName: "Technical Writing",
+        dates: [
+        ],
+        cat: "cs",
+        ects: 4, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: ""
+    },
+    gc: {
+        courseName: "German course",
+        dates: [
+        ],
+        cat: "cs",
+        ects: 4, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: ""
+    },
+    ctcggp: {
+        courseName: "Current Topics in Computer Graphics and Geometry Processing (Seminar)",
+        dates: [
+        ],
+        cat: "cs",
+        ects: 4, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.graphics.rwth-aachen.de/course/158/"
+    },
+    ctfa: {
+        courseName: "Current Topics in Fluid Animation (Seminar)",
+        dates: [
+        ],
+        cat: "cs",
+        ects: 4, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://animation.rwth-aachen.de/course/10/"
+    },
+    ctpba: {
+        courseName: "Current Topics in Physically-Based Animation (Seminar)",
+        dates: [
+        ],
+        cat: "cs",
+        ects: 4, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://animation.rwth-aachen.de/course/1/"
     }
 }
