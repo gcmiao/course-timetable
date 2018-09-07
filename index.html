@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="index" ng-controller="main">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -9,11 +9,11 @@
         <link rel="stylesheet" href="main.css">
         <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 
-        <title>Course Timetable</title>
+        <title>{{semesterName}} Course Timetable</title>
 
     </head>
 
-    <body ng-app="index" ng-controller="main">
+    <body>
         <h2 >
             <ul style="text-align:center">
                 <li class="sem-nav {{getSemStyle(semIdx)}}"  ng-init="semIdx=$index;" ng-repeat="sem in selected_courses" ng-click="onSemClicked(semIdx)">
