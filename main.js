@@ -1,4 +1,5 @@
-angular.module('index', []).controller('main', function ($scope) {
+var app = angular.module('index', []);
+app.controller('main', function ($scope) {
     $scope.courses_data = courses_data;
     $scope.selected_courses = selected_courses;
     $scope.total_required_ects = total_required_ects;
@@ -8,6 +9,18 @@ angular.module('index', []).controller('main', function ($scope) {
     refreshTable($scope);
     refreshNeverSelectedCourse($scope);
 })
+
+app.filter('courseCat', function() { //可以注入依赖
+    return function(coursesDataMap, showCat) {
+        var retList = new Array();
+        for (var courseIdx in coursesDataMap) {
+            if (coursesDataMap[courseIdx].cat == showCat) {
+                retList.push(coursesDataMap[courseIdx]);
+            }
+        }
+        return retList;
+    }
+});
 
 const MIN_TIME_INTERVAL = 15;
 const NUMBER_OF_DAY_PER_WEEK = 5;
@@ -24,6 +37,7 @@ function init($scope) {
     $scope.semesterECTS = null;
     $scope.totalSelectedECTS = null;
     $scope.neverSelectedCourseIds = null;
+    $scope.showingCatIdx = null;
 
     var timePointList = new Array();
     var currentTime = START_TIME;
@@ -71,6 +85,9 @@ function init($scope) {
     }
     $scope.jumpToPage = function(url) {
         window.open(url);
+    }
+    $scope.showCourseListOfCat = function(catIdx) {
+        $scope.showingCatIdx = catIdx;
     }
 }
 
