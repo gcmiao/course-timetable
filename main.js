@@ -7,7 +7,7 @@ app.controller('main', function ($scope) {
     loadCourseIds($scope);
     addCoursesToTable($scope, $scope.selectedCourseIds, courses_data);
     refreshTable($scope);
-    refreshNeverSelectedCourse($scope);
+    refreshCourseSelectionInfo($scope);
 })
 
 app.filter('courseCat', function() { //可以注入依赖
@@ -91,13 +91,23 @@ function init($scope) {
     }
 }
 
-function refreshNeverSelectedCourse($scope) {
+function refreshCourseSelectionInfo($scope) {
     $scope.neverSelectedCourseIds = getAllCourseIds($scope);
+    $scope.totalSelectedECTS = {};
     for (var semIdx in $scope.selected_courses) {
         var semCourseInfo = $scope.selected_courses[semIdx];
         for (var courseIdx in semCourseInfo.courseIds) {
             var courseId = semCourseInfo.courseIds[courseIdx];
-            $scope.neverSelectedCourseIds.delete(courseId);
+            if ($scope.neverSelectedCourseIds.has(courseId)) {
+                // this course is choosed, delete it from the list
+                $scope.neverSelectedCourseIds.delete(courseId);
+                // count this course into the selected ECTS
+                var courseData = $scope.courses_data[courseId];
+                if ($scope.totalSelectedECTS[courseData.cat] == null) {
+                    $scope.totalSelectedECTS[courseData.cat] = { cat: courseData.cat, value: 0 };
+                }
+                $scope.totalSelectedECTS[courseData.cat].value += courseData.ects;
+            }
         }
     }
 }
@@ -127,15 +137,6 @@ function getUrlParam(paramName, defaultValue) {
 function loadCourseIds($scope) {
     $scope.selectedCourseIds = new Set();
     $scope.unselectedCourseIds = getAllCourseIds($scope);
-
-    $scope.totalSelectedECTS = {};
-    $scope.unselectedCourseIds.forEach(function (courseId) {
-        var courseData = $scope.courses_data[courseId];
-        if ($scope.totalSelectedECTS[courseData.cat] == null) {
-            $scope.totalSelectedECTS[courseData.cat] = { cat: courseData.cat, value: 0 };
-        }
-        $scope.totalSelectedECTS[courseData.cat].value += courseData.ects;
-    });
 
     if ($scope.semesterIdx >= $scope.selected_courses.length) {
         $scope.semesterIdx = $scope.selected_courses.length - 1;
