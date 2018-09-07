@@ -92,7 +92,7 @@
             </table>
         </div>
         <div style="float:left;margin:40px 0px 0px 50px">
-            <div class="alert alert-info" style="float:left" ng-show="showingCatIdx != null">
+            <div class="alert alert-info" ng-show="showingCatIdx != null">
                 <button type="button" class="close" aria-hidden="true" ng-click="showCourseListOfCat(null)">&times;</button>
                 <h4><nobr>{{total_required_ects[showingCatIdx].name}}:</nobr></h4>
                 <ul>
@@ -101,7 +101,7 @@
                         </li>
                     </ul>
             </div>
-            <div class="alert alert-warning" ng-init="courseIds = getNeverSelectedCourseIds();" ng-show="courseIds.length > 0" style="float:left;margin-left:20px">
+            <div class="alert alert-warning" ng-init="courseIds = getNeverSelectedCourseIds();" ng-show="courseIds.length > 0">
                     <h4>[WARNING] These courses are never selected:</h4>
                     <ul>
                         <li ng-repeat="courseId in courseIds">
