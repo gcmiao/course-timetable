@@ -3,15 +3,13 @@ selected_courses =
     {
         semester: "2018/19 WS",
         courseIds: [
-            "btcga",
-            "btcgb",
+            "-btcga",
+            "icgb",
             "dcitb",
             "disb",
-            "rtg",
-            "pba",
-            "pp",
-            "cda",
-            "dava",
+            "-pp",
+            "-cda",
+            "-dava",
         ]
     },
     {
@@ -26,10 +24,8 @@ selected_courses =
     {
         semester: "2019/20 WS",
         courseIds: [
-            "-hpmc",
-            "-giibr",
-            "-gp",
-            "-dvab"
+            "rtg",
+            "pba"
         ]
     },
     {
@@ -93,7 +89,7 @@ courses_data =
         bgColor: "aachen-blue-bg",
         homePage: "https://www.graphics.rwth-aachen.de/course/161/"
     },
-    btcgb: {
+    icgb: {
         courseName: "Introduction to Computer Graphics (Bonn)",
         dates: [
             {day: 2, startTime: "10:15", endTime: "11:45", startDate: "Oct 23", type: "Lecture", room: "Endenicher Allee 19A - 0.109"
@@ -180,8 +176,9 @@ courses_data =
         ],
         cat: "cct",
         ects: 6,
-        bgColor: "bonn-yellow-bg",
-        homePage: "https://basis.uni-bonn.de/qisserver/rds?state=verpublish&status=init&vmfile=no&publishid=150903&moduleCall=webInfo&publishConfFile=webInfo&publishSubDir=veranstaltung&noDBAction=y&init=y"
+        bgColor: "bonn-light-yellow-bg",
+        homePage: "https://basis.uni-bonn.de/qisserver/rds?state=verpublish&status=init&vmfile=no&publishid=150903&moduleCall=webInfo&publishConfFile=webInfo&publishSubDir=veranstaltung&noDBAction=y&init=y",
+        hints:"E-Study, Basic knowledge"
     },
     hpmc: {
         courseName: "High-Performance Matrix Computations",
@@ -225,7 +222,7 @@ courses_data =
         ],
         cat: "mmui",
         ects: 6, ectsDesc: "(V3/Ü2)",
-        bgColor: "bonn-yellow-bg",
+        bgColor: "bonn-light-yellow-bg",
         homePage: "https://basis.uni-bonn.de/qisserver/rds?state=verpublish&status=init&vmfile=no&publishid=150901&moduleCall=webInfo&publishConfFile=webInfo&publishSubDir=veranstaltung"
     },
     cda: {

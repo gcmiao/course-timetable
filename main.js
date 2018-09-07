@@ -69,6 +69,9 @@ function init($scope) {
         }
         return sum;
     }
+    $scope.jumpToPage = function(url) {
+        window.open(url);
+    }
 }
 
 function refreshNeverSelectedCourse($scope) {

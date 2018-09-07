@@ -42,10 +42,14 @@ td.ects, th.ects {
     border-right:1px solid black;
 }
 .course-content {
+    vertical-align:text-top;
     border-bottom:1px solid lightgray;
     border-left:1px dashed  black;
-    min-width:160px;
-    padding:1px 10px 1px 10px;
+    min-width:150px;
+    padding:1px 8px 1px 8px;
+}
+.course-detail {
+    margin-bottom: 0px;
 }
 .day-header {
     font-size:1.2em;
@@ -55,12 +59,15 @@ td.ects, th.ects {
 }
 .row-header {
     text-align: center;
-    padding-top:4px;
-    padding-bottom:4px;
+    padding-top:2px;
+    padding-bottom:2px;
 }
 .aachen-blue-bg {
     background-color:#94B9DF
 }
 .bonn-yellow-bg {
     background-color:#F5B90F;
+}
+.bonn-light-yellow-bg {
+    background-color:rgb(255, 233, 171);
 }

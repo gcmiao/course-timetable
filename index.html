@@ -43,11 +43,17 @@
                         <div class="row-header">{{timeObjToString(timePoint) + " ~ " + timeObjToString(tickToNextTime(timePoint))}}</div>
                     </td>
                     <td class="course-content {{column.border}} {{courses_data[column.courseId].bgColor}}" ng-init="colIdx=$index" ng-repeat="column in columnsOfTime[rowIdx]" colspan="{{column.colSpan}}" rowspan="{{column.rowSpan}}" >
-                        <div class="text-center" ng-show="column.courseId != null">
-                            <h4><p>{{courses_data[column.courseId].courseName}}<br></p></h4>
-                            <p>Type: {{courses_data[column.courseId].dates[column.dateIdx].type}}, Duration: {{getCourseDuration(column.courseId, column.dateIdx)}} min.<br></p>
-                            <p>ECTS: {{courses_data[column.courseId].ects}}{{courses_data[column.courseId].ectsDesc}} Room: {{courses_data[column.courseId].dates[column.dateIdx].room}}</p>
-                            <p ng-show="courses_data[column.courseId].hints != null">Hints: {{courses_data[column.courseId].hints}}</p>
+                        <div ng-show="column.courseId != null">
+                            <h6 class="text-right" style="margin-bottom:-8px">
+                                <button style="border:1px solid black;background-color:transparent;border-radius:15px;padding:0px 5px 0px 5px;"
+                                         ng-click="jumpToPage(courses_data[column.courseId].homePage)">i</button>
+                            </h6>
+                            <h4 class="text-center" style="max-width:200px;margin:auto">{{courses_data[column.courseId].courseName}}</h4>
+                            <p class="course-detail">Type: {{courses_data[column.courseId].dates[column.dateIdx].type}}</p>
+                            <p class="course-detail">Duration: {{getCourseDuration(column.courseId, column.dateIdx)}} min.</p>
+                            <p class="course-detail">ECTS: {{courses_data[column.courseId].ects}}{{courses_data[column.courseId].ectsDesc}}</p>
+                            <nobr><p class="course-detail"> Room: {{courses_data[column.courseId].dates[column.dateIdx].room}}</p></nobr>
+                            <p class="course-detail" ng-show="courses_data[column.courseId].hints != null">Hints: {{courses_data[column.courseId].hints}}</p>
                         </div>
                     </td>
                 </tr>
