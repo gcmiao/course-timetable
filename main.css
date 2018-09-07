@@ -46,7 +46,7 @@ td.ects, th.ects {
     border-bottom:1px solid lightgray;
     border-left:1px dashed  black;
     min-width:150px;
-    padding:1px 8px 1px 8px;
+    padding:1px 10px 1px 10px;
 }
 .course-detail {
     margin-bottom: 0px;

@@ -44,7 +44,7 @@
                     </td>
                     <td class="course-content {{column.border}} {{courses_data[column.courseId].bgColor}}" ng-init="colIdx=$index" ng-repeat="column in columnsOfTime[rowIdx]" colspan="{{column.colSpan}}" rowspan="{{column.rowSpan}}" >
                         <div ng-show="column.courseId != null">
-                            <h6 class="text-right" style="margin-bottom:-8px">
+                            <h6 class="text-right" style="margin-bottom:0px">
                                 <button style="border:1px solid black;background-color:transparent;border-radius:15px;padding:0px 5px 0px 5px;"
                                          ng-click="jumpToPage(courses_data[column.courseId].homePage)">i</button>
                             </h6>
