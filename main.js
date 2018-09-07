@@ -83,9 +83,6 @@ function init($scope) {
         }
         return sum;
     }
-    $scope.jumpToPage = function(url) {
-        window.open(url);
-    }
     $scope.showCourseListOfCat = function(catIdx) {
         $scope.showingCatIdx = catIdx;
     }
