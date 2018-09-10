@@ -7,9 +7,8 @@ selected_courses =
             "icgb",
             "dcitb",
             "disb",
-            "-pp",
+            "pp",
             "-cda",
-            "-dava",
         ]
     },
     {
@@ -18,7 +17,9 @@ selected_courses =
             "hpmc",
             "giibr",
             "gp",
-            "-dvab"
+            "dava",
+            "-dvab",
+            "oosc"
         ]
     },
     {
@@ -31,10 +32,6 @@ selected_courses =
     {
         semester: "2020 SS",
         courseIds: [
-            "-hpmc",
-            "-giibr",
-            "-gp",
-            "-dvab"
         ]
     }
 ]
@@ -175,6 +172,15 @@ courses_data =
         bgColor: "aachen-blue-bg",
         homePage: "https://www.graphics.rwth-aachen.de/course/157/"
     },
+    cv: {
+        courseName: "Computer Vision",
+        dates: [
+        ],
+        cat: "mmt",
+        ects: 6, ectsDesc: "(V3/Ü2)",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.vision.rwth-aachen.de/course/22/"
+    },
 
 
 
@@ -221,6 +227,61 @@ courses_data =
         bgColor: "aachen-blue-bg",
         homePage: "http://hpac.rwth-aachen.de/teaching/pp-18/"
     },
+    iai: {
+        courseName: "Introduction to Artificial Intelligence",
+        dates: [
+        ],
+        cat: "cct",
+        ects: 6, ectsDesc: "(V3/Ü2)",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.kbsg.rwth-aachen.de/teaching"
+    },
+    spm: {
+        courseName: "Software Project Management",
+        dates: [
+        ],
+        cat: "cct",
+        ects: 4, ectsDesc: "(V2/Ü1)",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.swc.rwth-aachen.de/course/software-project-management/"
+    },
+    oosc: {
+        courseName: "Object Oriented Software Construction",
+        dates: [
+        ],
+        cat: "cct",
+        ects: 6, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.swc.rwth-aachen.de/course/"
+    },
+    dsbd: {
+        courseName: "Intelligent Learning and Analysis Systems: Data Mining and Knowledge Discovery",
+        dates: [
+        ],
+        cat: "cct",
+        ects: 6, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.kdml.iai.uni-bonn.de/teaching"
+    },
+    dsbd: {
+        courseName: "Data Science and Big Data",
+        dates: [
+        ],
+        cat: "cct",
+        ects: 6, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.kdml.iai.uni-bonn.de/teaching"
+    },
+    ilsc: {
+        courseName: "Introduction to Languages for Scientific Computing",
+        dates: [
+        ],
+        cat: "cct",
+        ects: 6,
+        bgColor: "aachen-blue-bg",
+        homePage: "http://hpac.rwth-aachen.de/teaching/lsc-18/"
+    },
+   
 
 
 
@@ -286,7 +347,7 @@ courses_data =
         cat: "flab",
         ects: 10, ectsDesc: "",
         bgColor: "aachen-blue-bg",
-        homePage: "https://www.graphics.rwth-aachen.de/course/162/"
+        homePage: "http://dbis.rwth-aachen.de/cms/teaching/SS18/Blockchain"
     },
     mltaf: {
         courseName: "Machine Learning for Text Analysis (Fraunhofer Lab)",
