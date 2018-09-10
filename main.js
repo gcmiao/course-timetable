@@ -306,7 +306,7 @@ function getColumnsByTime($scope, timeObj) {
                         columns.push({
                             colSpan: postAccumColSpan, rowSpan: 1,
                             courseId: null, dateIdx: -1,
-                            border: "cell-empty cell-rightmost",
+                            border: "cell-empty",
                             debug: { time: timeObj, day: dayIdx }
                         });
                         preAccumColSpan += postAccumColSpan;
@@ -319,7 +319,7 @@ function getColumnsByTime($scope, timeObj) {
                 columns.push({
                     colSpan: header.span - preAccumColSpan, rowSpan: 1,
                     courseId: null, dateIdx: -1,
-                    border: "cell-empty cell-leftmost",
+                    border: "cell-empty",
                     debug: { time: timeObj, day: dayIdx }
                 });
             }
@@ -329,7 +329,7 @@ function getColumnsByTime($scope, timeObj) {
             columns.push({
                 colSpan: header.span, rowSpan: 1,
                 courseId: null, dateIdx: -1,
-                border: "cell-empty",
+                border: "cell-empty cell-leftmost cell-rightmost",
                 debug: { time: timeObj, day: dayIdx }
             });
         }

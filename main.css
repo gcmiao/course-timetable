@@ -27,24 +27,22 @@ td.cell-rightmost {
     border-right:2px solid black;
 }
 td.cell-not-empty {
-    border-top:2px solid black;
-    border-bottom:2px solid black;
+    border-radius: 20px;
 }
 td.cell-empty {
-    border-left:2px solid black;
+
 }
 td.course {
     border-bottom:1px solid lightgray;
 }
 td.ects, th.ects {
     padding:5px;
-    border-left:1px solid balck;
+    border-left:1px solid black;
     border-right:1px solid black;
 }
 .course-content {
     vertical-align:text-top;
     border-bottom:1px solid lightgray;
-    border-left:1px dashed  black;
     min-width:150px;
     padding:10px;
 }
