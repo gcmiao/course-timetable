@@ -86,6 +86,44 @@ function init($scope) {
     $scope.showCourseListOfCat = function(catIdx) {
         $scope.showingCatIdx = catIdx;
     }
+    $scope.getSelectedStatus = function(courseId) {
+        var retStatus = {};
+        if ($scope.neverSelectedCourseIds.has(courseId)) {
+            retStatus.status = "unselected";
+        }
+        else {
+             if($scope.selectedCourseIds.has(courseId)) {
+                retStatus.status = "selected-this-sem";
+                retStatus.text = "Selected";
+            }
+            else {
+                retStatus.status = "selected-other-sem";
+                retStatus.text = "Selected*";
+            }
+            retStatus.semIdx = getSemIdxWithCourseId($scope, courseId);
+        }
+        return retStatus;
+    }
+}
+
+function getSemIdxWithCourseId($scope, courseId) {
+    var found = false;
+    var retIdx = 0;
+    for (var idx in $scope.selected_courses) {
+        var courseIds = $scope.selected_courses[idx].courseIds;
+        found = false;
+        for (var courseIdx in courseIds) {
+            if (courseId == courseIds[courseIdx]) {
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            retIdx = idx;
+            break;
+        }
+    }
+    return retIdx;
 }
 
 function refreshCourseSelectionInfo($scope) {
@@ -132,6 +170,10 @@ function getUrlParam(paramName, defaultValue) {
 }
 
 function loadCourseIds($scope) {
+    for (var courseId in $scope.courses_data) {
+        $scope.courses_data[courseId].courseId = courseId;
+    }
+
     $scope.selectedCourseIds = new Set();
     $scope.unselectedCourseIds = getAllCourseIds($scope);
 
