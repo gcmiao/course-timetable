@@ -24,7 +24,7 @@ app.filter('courseCat', function() { //可以注入依赖
 
 const MIN_TIME_INTERVAL = 15;
 const NUMBER_OF_DAY_PER_WEEK = 5;
-const START_TIME = CreateTimeObjByHM(9, 0);
+const START_TIME = CreateTimeObjByHM(8, 0);
 const END_TIME = CreateTimeObjByHM(18, 30);
 const URL_PARAM_NAME_SEMESTER_IDX = "semester";
 
@@ -306,7 +306,7 @@ function getColumnsByTime($scope, timeObj) {
                         columns.push({
                             colSpan: postAccumColSpan, rowSpan: 1,
                             courseId: null, dateIdx: -1,
-                            border: "cell-empty",
+                            border: "cell-empty cell-leftmost",
                             debug: { time: timeObj, day: dayIdx }
                         });
                         preAccumColSpan += postAccumColSpan;
@@ -319,7 +319,7 @@ function getColumnsByTime($scope, timeObj) {
                 columns.push({
                     colSpan: header.span - preAccumColSpan, rowSpan: 1,
                     courseId: null, dateIdx: -1,
-                    border: "cell-empty",
+                    border: "cell-empty cell-rightmost",
                     debug: { time: timeObj, day: dayIdx }
                 });
             }
