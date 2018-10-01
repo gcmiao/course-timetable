@@ -96,7 +96,12 @@
                 <h4><nobr>{{total_required_ects[showingCatIdx].name}}:</nobr></h4>
                 <ul>
                         <li ng-repeat="courseData in courses_data | courseCat:total_required_ects[showingCatIdx].cat">
-                            <a style="color:#31708f" href={{courseData.homePage}}>{{courseData.courseName}}, {{courseData.ects}} ECTS</a>
+                            <div ng-show="courseData.homePage != ''" style="display:inline">
+                                <a style="color:#31708f" href={{courseData.homePage}}>{{courseData.courseName}}, {{courseData.ects}} ECTS</a>
+                            </div>
+                            <div ng-show="courseData.homePage == ''" style="display:inline">
+                                {{courseData.courseName}}, {{courseData.ects}} ECTS
+                            </div>
                             <div ng-init="selectStatus=getSelectedStatus(courseData.courseId)" ng-show="selectStatus.status != 'unselected'" style="display:inline">
                                 <strong>
                                     <div ng-show="selectStatus.status == 'selected-this-sem'" style="display:inline">[{{selectStatus.text}}]</div>
