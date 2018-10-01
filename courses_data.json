@@ -7,8 +7,11 @@ selected_courses =
             "icgb",
             "dcitb",
             "disb",
+            "-disa",
             "pp",
             "-cda",
+            "-rtg",
+            "-oosc",
         ]
     },
     {
@@ -18,15 +21,18 @@ selected_courses =
             "giibr",
             "gp",
             "dava",
+            "ilsc",
             "-dvab",
-            "oosc"
+            "-oosc"
         ]
     },
     {
         semester: "2019/20 WS",
         courseIds: [
             "rtg",
-            "pba"
+            "pba",
+            "oosc",
+            "ids"
         ]
     },
     {
@@ -227,14 +233,33 @@ courses_data =
         bgColor: "aachen-blue-bg",
         homePage: "http://hpac.rwth-aachen.de/teaching/pp-18/"
     },
-    iai: {
-        courseName: "Introduction to Artificial Intelligence",
+    ilsc: {
+        courseName: "Introduction to Languages for Scientific Computing",
         dates: [
+            {day: 1, startTime: "16:15", endTime: "17:45", startDate: "Oct 9", type: "Lecture", room: "2181|P11 (MeT P 11), Kopernikusstraße 14"
+            },
+            {day: 5, startTime: "16:15", endTime: "17:45", startDate: "Oct 9", type: "Lecture + Exercise", room: "2181|P11 (MeT P 11), Kopernikusstraße 14"
+            },
+        ],
+        cat: "cct",
+        ects: 6,
+        bgColor: "aachen-blue-bg",
+        homePage: "http://hpac.rwth-aachen.de/teaching/lsc-18/"
+    },
+    ids: {
+        courseName: "Introduction to Data Science",
+        dates: [
+            {day: 3, startTime: "08:30", endTime: "10:00", startDate: "Oct 10", type: "Lecture", room: "Aula 2 (2352/021)"
+            },
+            {day: 4, startTime: "08:30", endTime: "10:00", startDate: "Oct 11", type: "Lecture", room: "Aula 2 (2352/021)"
+            },
+            {day: 5, startTime: "08:30", endTime: "10:00", startDate: "Oct 12", type: "Exercise", room: "Aula 2 (2352/021)"
+            },
         ],
         cat: "cct",
         ects: 6, ectsDesc: "(V3/Ü2)",
         bgColor: "aachen-blue-bg",
-        homePage: "https://www.kbsg.rwth-aachen.de/teaching"
+        homePage: "http://www.pads.rwth-aachen.de/go/id/qlux/lidx/1"
     },
     spm: {
         courseName: "Software Project Management",
@@ -248,6 +273,10 @@ courses_data =
     oosc: {
         courseName: "Object Oriented Software Construction",
         dates: [
+            {day: 3, startTime: "10:30", endTime: "12:00", startDate: "Oct 10", type: "Lecture", room: "1080|140 (R 140), Schinkelstraße 1, Templergraben 51"
+            },
+            {day: 4, startTime: "8:30", endTime: "10:00", startDate: "Oct 11", type: "Excerise", room: "2090|120 (FT), Melatener Straße 23"
+            },
         ],
         cat: "cct",
         ects: 6, ectsDesc: "",
@@ -272,14 +301,14 @@ courses_data =
         bgColor: "aachen-blue-bg",
         homePage: "https://www.kdml.iai.uni-bonn.de/teaching"
     },
-    ilsc: {
-        courseName: "Introduction to Languages for Scientific Computing",
+    pds: {
+        courseName: "Principles of Distributed Systems",
         dates: [
         ],
         cat: "cct",
         ects: 6,
         bgColor: "aachen-blue-bg",
-        homePage: "http://hpac.rwth-aachen.de/teaching/lsc-18/"
+        homePage: ""
     },
    
 
@@ -287,7 +316,7 @@ courses_data =
 
 
     disb: {
-        courseName: "Designing Interactive Systems (Bonn)",
+        courseName: "Designing Interactive Systems I (Bonn)",
         dates: [
             {day: 2, startTime: "13:00", endTime: "15:30", startDate: "Oct 23", type: "Lecture", room: "Endenicher Allee 19A - 0.109"
             },
@@ -297,7 +326,20 @@ courses_data =
         cat: "mmui",
         ects: 6, ectsDesc: "(V3/Ü2)",
         bgColor: "bonn-light-yellow-bg",
-        homePage: "https://basis.uni-bonn.de/qisserver/rds?state=verpublish&status=init&vmfile=no&publishid=150901&moduleCall=webInfo&publishConfFile=webInfo&publishSubDir=veranstaltung"
+        homePage: "http://hci.rwth-aachen.de/dis"
+    },
+    disa: {
+        courseName: "Designing Interactive Systems I (Aachen)",
+        dates: [
+            {day: 1, startTime: "12:15", endTime: "13:45", startDate: "Oct 15", type: "Lab", room: "5053.2a/b"
+            },
+            {day: 3, startTime: "10:00", endTime: "11:45", startDate: "Oct 10", type: "Studio", room: "5053.2a/b"
+            },
+        ],
+        cat: "mmui",
+        ects: 6, ectsDesc: "(V3/Ü2)",
+        bgColor: "aachen-blue-bg",
+        homePage: "http://hci.rwth-aachen.de/dis"
     },
     cda: {
         courseName: "Communication in the Digital Age (Bonn)",
