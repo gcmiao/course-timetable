@@ -9,9 +9,12 @@ selected_courses =
             "disb",
             "-disa",
             "pp",
+            "-pba",
             "-cda",
             "-rtg",
             "-oosc",
+            "-dava",
+            "gca1m"
         ]
     },
     {
@@ -22,7 +25,7 @@ selected_courses =
             "gp",
             "dava",
             "ilsc",
-            "-dvab",
+            "dvab",
             "-oosc"
         ]
     },
@@ -32,7 +35,10 @@ selected_courses =
             "rtg",
             "pba",
             "oosc",
-            "ids"
+            "ids",
+            "-disa",
+            "pp",
+            "dava"
         ]
     },
     {
@@ -320,7 +326,7 @@ courses_data =
         dates: [
             {day: 2, startTime: "13:00", endTime: "15:30", startDate: "Oct 23", type: "Lecture", room: "Endenicher Allee 19A - 0.109"
             },
-            {day: 2, startTime: "15:45", endTime: "17:15", startDate: "Oct 23", type: "Lecture", room: "Endenicher Allee 19A - 0.109"
+            {day: 2, startTime: "15:30", endTime: "17:30", startDate: "Oct 23", type: "Lecture", room: "Endenicher Allee 19A - 0.109"
             }
         ],
         cat: "mmui",
@@ -331,9 +337,9 @@ courses_data =
     disa: {
         courseName: "Designing Interactive Systems I (Aachen)",
         dates: [
-            {day: 1, startTime: "12:15", endTime: "13:45", startDate: "Oct 15", type: "Lab", room: "5053.2a/b"
+            {day: 1, startTime: "12:15", endTime: "13:45", startDate: "Oct 15", type: "Lab", room: "5053.2a/b, Informatikzentrum, Ahornstr. 55"
             },
-            {day: 3, startTime: "10:00", endTime: "11:45", startDate: "Oct 10", type: "Studio", room: "5053.2a/b"
+            {day: 3, startTime: "10:00", endTime: "11:45", startDate: "Oct 10", type: "Studio", room: "5053.2a/b, Informatikzentrum, Ahornstr. 55"
             },
         ],
         cat: "mmui",
@@ -344,7 +350,7 @@ courses_data =
     cda: {
         courseName: "Communication in the Digital Age (Bonn)",
         dates: [
-            {day: 3, startTime: "14:30", endTime: "17:00", startDate: "Nov 4", type: "Lecture", room: "B-IT, Room 0.109"
+            {day: 3, startTime: "14:30", endTime: "17:00", startDate: "April 11", type: "Lecture", room: "B-IT, Room 0.109"
             }
         ],
         cat: "mmui",
@@ -368,9 +374,9 @@ courses_data =
     dava: {
         courseName: "Data Analysis and Visualization",
         dates: [
-            {day: 5, startTime: "10:30", endTime: "12:00", startDate: "April 17", type: "Lecture", room: "2359|118 (i8 Seminar Room)"
+            {day: 5, startTime: "10:30", endTime: "12:00", startDate: "Oct 17", type: "Lecture", room: "2359|118 (i8 Seminar Room)"
             },
-            {day: 2, startTime: "13:30", endTime: "14:15", startDate: "April 24", type: "Lecture", room: "2356|050 (AH V)"
+            {day: 2, startTime: "13:30", endTime: "14:15", startDate: "Oct 24", type: "Tutorial", room: "2356|050 (AH V)"
             }
         ],
         cat: "mmui",
@@ -453,14 +459,19 @@ courses_data =
         bgColor: "aachen-blue-bg",
         homePage: ""
     },
-    gc: {
-        courseName: "German course",
+    gca1m: {
+        courseName: "German Course A1.1.m",
         dates: [
+            {day: 1, startTime: "10:30", endTime: "12:00", startDate: "Oct 15", type: "Lecture", room: "SE 108 (1580|108)"
+            },
+            {day: 3, startTime: "10:30", endTime: "12:00", startDate: "Oct 15", type: "Lecture", room: "ST 5 (1665|005)"
+            }
+
         ],
         cat: "cs",
         ects: 4, ectsDesc: "",
         bgColor: "aachen-blue-bg",
-        homePage: ""
+        homePage: "https://online.rwth-aachen.de/RWTHonline/pl/ui/$ctx/wbLv.wbShowLVDetail?pStpSpNr=273845&pSpracheNr=2&pMUISuche=FALSE"
     },
     ctcggp: {
         courseName: "Current Topics in Computer Graphics and Geometry Processing (Seminar)",
