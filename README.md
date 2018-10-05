@@ -1,0 +1,1 @@
+An assistant for selecting courses of Media Informatics at Aachen
