@@ -14,7 +14,7 @@ selected_courses =
             "-rtg",
             "-oosc",
             "-dava",
-            "gca1m"
+            "gca1e"
         ]
     },
     {
@@ -23,8 +23,7 @@ selected_courses =
             "hpmc",
             "giibr",
             "gp",
-            "dava",
-            "ilsc",
+            "-ilsc",
             "dvab",
             "-oosc"
         ]
@@ -34,10 +33,10 @@ selected_courses =
         courseIds: [
             "rtg",
             "pba",
-            "oosc",
-            "ids",
+            "-oosc",
+            "-ids",
             "-disa",
-            "pp",
+            "-pp",
             "dava"
         ]
     },
@@ -227,12 +226,18 @@ courses_data =
     pp: {
         courseName: "Parallel Programming",
         dates: [
-            {day: 1, startTime: "12:15", endTime: "13:00", startDate: "Oct 9", type: "Lecture", room: "1080|140 (R 140), Schinkelstraße 1, Templergraben 51"
+            {day: 1, startTime: "16:00", endTime: "16:45", startDate: "Oct 9", type: "Lecture", room: "1080|005 (R 5), Schinkelstraße 1, Templergraben 51"
             },
-            {day: 1, startTime: "16:00", endTime: "17:30", startDate: "Oct 9", type: "Excerise", room: "2090|120 (FT), Melatener Straße 23"
+            {day: 5, startTime: "16:30", endTime: "18:00", startDate: "Oct 12", type: "Lecture", room: "1080|005 (R 5), Schinkelstraße 1, Templergraben 51"
             },
-            {day: 3, startTime: "12:15", endTime: "13:45", startDate: "Oct 9", type: "Lecture", room: "1080|140 (R 140), Schinkelstraße 1, Templergraben 51"
+            {day: 1, startTime: "17:00", endTime: "18:30", startDate: "Oct 22", type: "Exercise", room: "1080|525 , Schinkelstraße 1, Templergraben 51"
+            },
+            {day: 1, startTime: "12:15", endTime: "14:30", startDate: "Oct 8", type: "Extra Lecture", room: "GRS 001, Schinkelstraße"
             }
+        ],
+        exmDates: [
+            "Feb 6 2018, 13:00 ~ 16:00",
+            "Mar 25 2018, 10:30 ~ 13:30"
         ],
         cat: "cct",
         ects: 6, ectsDesc: "(V3)",
@@ -324,9 +329,7 @@ courses_data =
     disb: {
         courseName: "Designing Interactive Systems I (Bonn)",
         dates: [
-            {day: 2, startTime: "13:00", endTime: "15:30", startDate: "Oct 23", type: "Lecture", room: "Endenicher Allee 19A - 0.109"
-            },
-            {day: 2, startTime: "15:30", endTime: "17:30", startDate: "Oct 23", type: "Lecture", room: "Endenicher Allee 19A - 0.109"
+            {day: 2, startTime: "13:00", endTime: "17:30", startDate: "Oct 23", type: "Lecture", room: "Endenicher Allee 19A - 0.109"
             }
         ],
         cat: "mmui",
@@ -458,6 +461,17 @@ courses_data =
         ects: 4, ectsDesc: "",
         bgColor: "aachen-blue-bg",
         homePage: ""
+    },
+    gca1e: {
+        courseName: "German Course A1.1.e",
+        dates: [
+            {day: 5, startTime: "08:30", endTime: "12:00", startDate: "Oct 19", type: "Lecture", room: "ST 5(1665|005)"
+            }
+        ],
+        cat: "cs",
+        ects: 4, ectsDesc: "",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://online.rwth-aachen.de/RWTHonline/pl/ui/$ctx/wbLv.wbShowLVDetail?pStpSpNr=268240"
     },
     gca1m: {
         courseName: "German Course A1.1.m",
