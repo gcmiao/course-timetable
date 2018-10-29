@@ -14,7 +14,9 @@ selected_courses =
             "-rtg",
             "-oosc",
             "-dava",
-            "gca1e"
+            "-gca1e",
+            "-ml",
+            "-scml"
         ]
     },
     {
@@ -25,7 +27,8 @@ selected_courses =
             "gp",
             "-ilsc",
             "dvab",
-            "-oosc"
+            "-oosc",
+            "cv"
         ]
     },
     {
@@ -108,7 +111,7 @@ courses_data =
             }
         ],
         cat: "mmt",
-        ects: 6, ectsDesc: "(V3/Ü2)",
+        ects: 8, ectsDesc: "(V4/Ü2)",
         bgColor: "bonn-yellow-bg",
         homePage: "https://basis.uni-bonn.de/qisserver/rds?state=verpublish&status=init&vmfile=no&publishid=150900&moduleCall=webInfo&publishConfFile=webInfo&publishSubDir=veranstaltung"
     },
@@ -183,9 +186,61 @@ courses_data =
         bgColor: "aachen-blue-bg",
         homePage: "https://www.graphics.rwth-aachen.de/course/157/"
     },
+    ml: {
+        courseName: "Machine Learning",
+        dates: [
+            {day: 1, startTime: "10:30", endTime: "12:00", startDate: "Oct 15", type: "Lecture", room: "AH V"
+            },
+            {day: 4, startTime: "10:30", endTime: "12:00", startDate: "Oct 18", type: "Lecture", room: "AH V"
+            }
+        ],
+        cat: "mmt",
+        ects: 6, ectsDesc: "(V3/Ü1)",
+        bgColor: "aachen-blue-bg",
+        homePage: "http://web-info8.informatik.rwth-aachen.de/course/26/"
+    },
+    ml2: {
+        courseName: "Machine Learning 2",
+        dates: [
+        ],
+        cat: "mmt",
+        ects: 6, ectsDesc: "(V3/Ü2)",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.vision.rwth-aachen.de/course/22/"
+    },
     cv: {
         courseName: "Computer Vision",
         dates: [
+            {day: 2, startTime: "10:15", endTime: "11:45", startDate: "Apr 15", type: "Lecture", room: "AH V"
+            },
+            {day: 4, startTime: "14:15", endTime: "15:45", startDate: "Apr 18", type: "Lecture", room: "AH V"
+            }
+        ],
+        cat: "mmt",
+        ects: 6, ectsDesc: "(V3/Ü1)",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.vision.rwth-aachen.de/course/22/"
+    },
+    cv2: {
+        courseName: "Computer Vision 2",
+        dates: [
+            {day: 2, startTime: "10:30", endTime: "12:00", startDate: "Oct 16", type: "Lecture", room: "AH V"
+            },
+        ],
+        cat: "mmt",
+        ects: 6, ectsDesc: "(V3/Ü2)",
+        bgColor: "aachen-blue-bg",
+        homePage: "https://www.vision.rwth-aachen.de/course/22/"
+    },
+    scml: {
+        courseName: "Statistical Classification and Machine Learning",
+        dates: [
+            {day: 1, startTime: "10:30", endTime: "12:00", startDate: "Oct 15", type: "Lecture", room: "AH V"
+            },
+            {day: 3, startTime: "10:30", endTime: "12:00", startDate: "Oct 16", type: "Lecture", room: "AH V"
+            },
+            {day: 4, startTime: "16:30", endTime: "18:00", startDate: "Oct 16", type: "Lecture", room: "AH V"
+            },
         ],
         cat: "mmt",
         ects: 6, ectsDesc: "(V3/Ü2)",
@@ -309,8 +364,8 @@ courses_data =
         ],
         cat: "cct",
         ects: 6, ectsDesc: "",
-        bgColor: "aachen-blue-bg",
-        homePage: "https://www.kdml.iai.uni-bonn.de/teaching"
+        bgColor: "bonn-light-yellow-bg",
+        homePage: "https://www.kdml.iai.uni-bonn.de/teaching/Sommer-2018"
     },
     pds: {
         courseName: "Principles of Distributed Systems",
@@ -319,7 +374,8 @@ courses_data =
         cat: "cct",
         ects: 6,
         bgColor: "aachen-blue-bg",
-        homePage: ""
+        homePage: "http://net.cs.uni-bonn.de/wg/cs/teaching/wt-201718/principles-of-distributed-systems/",
+        hints:"代替DCIT，今年没有，后年来得来波恩"
     },
    
 
